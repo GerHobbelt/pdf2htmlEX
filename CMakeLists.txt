@@ -8,6 +8,9 @@ cmake_minimum_required(VERSION 2.6.0 FATAL_ERROR)
 option(ENABLE_SVG "Enable SVG support, for generating SVG background images and converting Type 3 fonts" ON)
 
 include_directories(${CMAKE_SOURCE_DIR}/src)
+add_definitions("-fpermissive")
+
+link_directories("/usr/x86_64-w64-mingw32/lib")
 
 set(PDF2HTMLEX_VERSION "0.14.6")
 set(ARCHIVE_NAME pdf2htmlex-${PDF2HTMLEX_VERSION})
@@ -172,7 +175,7 @@ set(PDF2HTMLEX_SRC ${PDF2HTMLEX_SRC}
     )
 
 add_executable(pdf2htmlEX ${PDF2HTMLEX_SRC})
-target_link_libraries(pdf2htmlEX ${PDF2HTMLEX_LIBS})
+target_link_libraries(pdf2htmlEX ${PDF2HTMLEX_LIBS} intl iconv gettextlib gettextpo gutils png jpeg openjpeg glib-2.0 z xml2 tiff gio-2.0 ltdl gutils gunicode freetype readline)
 
 add_custom_target(pdf2htmlEX_resources ALL DEPENDS
     ${CMAKE_SOURCE_DIR}/share/base.min.css

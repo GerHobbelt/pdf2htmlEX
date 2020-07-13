@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#/bin/bash 
 # Compile and optimize CSS code
 # Copyright 2013 Lu Wang <coolwanglu@gmail.com>
 

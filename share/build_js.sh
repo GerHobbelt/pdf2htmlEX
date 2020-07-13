@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/bash 
 # Compile and optimize JS code
 # Copyright 2013 Lu Wang <coolwanglu@gmail.com>
 
