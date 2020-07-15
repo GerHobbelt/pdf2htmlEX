@@ -20,3 +20,6 @@ test export-ignore
 Testing/*
 build
 test.py
+dotnetWrapper/AMANA.PDF.Converter/packages/
+dotnetWrapper/AMANA.PDF.Converter/.vs/
+dotnetWrapper/AMANA.PDF.Converter/AMANA.PDF.Converter/obj/
