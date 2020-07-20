@@ -1,0 +1,9 @@
+C:\dev\pdf2HtmlEx\DotNet.Converter\AMANA.PDF.Converter\bin\Debug\AMANA.PDF.Converter.dll
+C:\dev\pdf2HtmlEx\DotNet.Converter\AMANA.PDF.Converter\bin\Debug\AMANA.PDF.Converter.pdb
+C:\dev\pdf2HtmlEx\DotNet.Converter\AMANA.PDF.Converter\bin\Debug\Newtonsoft.Json.dll
+C:\dev\pdf2HtmlEx\DotNet.Converter\AMANA.PDF.Converter\bin\Debug\Newtonsoft.Json.xml
+C:\dev\pdf2HtmlEx\DotNet.Converter\AMANA.PDF.Converter\obj\Debug\AMANA.PDF.Converter.csprojAssemblyReference.cache
+C:\dev\pdf2HtmlEx\DotNet.Converter\AMANA.PDF.Converter\obj\Debug\AMANA.PDF.Converter.csproj.CoreCompileInputs.cache
+C:\dev\pdf2HtmlEx\DotNet.Converter\AMANA.PDF.Converter\obj\Debug\AMANA.PDF.Converter.csproj.CopyComplete
+C:\dev\pdf2HtmlEx\DotNet.Converter\AMANA.PDF.Converter\obj\Debug\AMANA.PDF.Converter.dll
+C:\dev\pdf2HtmlEx\DotNet.Converter\AMANA.PDF.Converter\obj\Debug\AMANA.PDF.Converter.pdb
