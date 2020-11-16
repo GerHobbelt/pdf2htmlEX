@@ -8,6 +8,7 @@
 
 
 #include <algorithm>
+#include <sstream>
 
 #include "HTMLRenderer.h"
 
@@ -22,6 +23,7 @@ namespace pdf2htmlEX {
 using std::none_of;
 using std::cerr;
 using std::endl;
+using std::ostringstream;
 
 void HTMLRenderer::drawString(GfxState * state, GooString * s)
 {
@@ -121,6 +123,18 @@ void HTMLRenderer::drawString(GfxState * state, GooString * s)
                 else
                 {
                     uu = unicode_from_font(code, font);
+                    if ((param.create_fontmap) && (uLen > 1) && none_of(u, u+uLen, is_illegal_unicode))
+                    { // semyonc: dump ligature to fontmap
+                        ostringstream key;
+                        key  << hex << cur_text_state.font_info->id << uu;
+                        if (ligatureset.insert(key.str()).second)
+                        {
+                            unicode_map_outf << "ff" << hex << cur_text_state.font_info->id << "\t" << uu;
+                            for (int k = 0; k < uLen; ++k)
+                                unicode_map_outf << "\t" << u[k];
+                            unicode_map_outf << dec << endl;
+                        }
+                    }
                 }
                 html_text_page.get_cur_line()->append_unicodes(&uu, 1, ddx);
                 /*
@@ -131,7 +145,7 @@ void HTMLRenderer::drawString(GfxState * state, GooString * s)
                 if(space_count != 0)
                 {
                     html_text_page.get_cur_line()->append_offset(cur_word_space * draw_text_scale * space_count);
-                }
+                }                
             }
         }
 

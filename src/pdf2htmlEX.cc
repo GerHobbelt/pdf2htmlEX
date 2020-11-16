@@ -172,6 +172,7 @@ void parse_options (int argc, char **argv)
         .add("squeeze-wide-glyph", &param.squeeze_wide_glyph, 1, "shrink wide glyphs instead of truncating them")
         .add("override-fstype", &param.override_fstype, 0, "clear the fstype bits in TTF/OTF fonts")
         .add("process-type3", &param.process_type3, 0, "convert Type 3 fonts for web (experimental)")
+        .add("create-fontmap", &param.create_fontmap, 0, "Create external unicode font map")
 
         // text
         .add("heps", &param.h_eps, 1.0, "horizontal threshold for merging text, in pixels")

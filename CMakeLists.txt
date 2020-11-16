@@ -12,7 +12,7 @@ add_definitions("-fpermissive")
 
 link_directories("/usr/x86_64-w64-mingw32/lib")
 
-set(PDF2HTMLEX_VERSION "0.14.6")
+set(PDF2HTMLEX_VERSION "0.14.7-amana")
 set(ARCHIVE_NAME pdf2htmlex-${PDF2HTMLEX_VERSION})
 add_custom_target(dist
     COMMAND git archive --prefix=${ARCHIVE_NAME}/ HEAD

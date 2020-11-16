@@ -20,3 +20,4 @@ test export-ignore
 Testing/*
 build
 test.py
+.vscode/settings.json

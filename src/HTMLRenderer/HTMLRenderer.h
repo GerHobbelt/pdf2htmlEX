@@ -8,6 +8,7 @@
 #define HTMLRENDERER_H_
 
 #include <unordered_map>
+#include <unordered_set>
 #include <cstdint>
 #include <fstream>
 #include <memory>
@@ -341,6 +342,9 @@ protected:
 
     CoveredTextDetector covered_text_detector;
     DrawingTracer tracer;
+
+    std::ofstream unicode_map_outf;
+    std::unordered_set<std::string> ligatureset;
 };
 
 } //namespace pdf2htmlEX

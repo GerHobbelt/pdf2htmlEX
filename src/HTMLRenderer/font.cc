@@ -575,7 +575,7 @@ void HTMLRenderer::embed_font(const string & filepath, GfxFont * font, FontInfo 
             tmp_files.add(map_filename);
             map_outf.open(map_filename);
         }
-
+        
         unordered_set<int> codeset;
         bool name_conflict_warned = false;
 
@@ -625,6 +625,15 @@ void HTMLRenderer::embed_font(const string & filepath, GfxFont * font, FontInfo 
             else
             {
                 u = unicode_from_font(cur_code, font);
+                if (param.create_fontmap)
+                { // semyonc: write difference to external file                 
+                    int n = ctu ? (ctu->mapToUnicode(cur_code, &pu)) : 0;                
+                    Unicode u2 = check_unicode(pu, n, cur_code, font);
+                    if (u != u2) 
+                    {
+                        unicode_map_outf << "ff" << hex << info.id << "\t" << u << "\t" << u2 << dec << endl;
+                    }
+                }
             }
 
             if(codeset.insert(u).second)
@@ -653,7 +662,7 @@ void HTMLRenderer::embed_font(const string & filepath, GfxFont * font, FontInfo 
                         }
                         continue;
                     }
-                }
+                }                            
                 if(!name_conflict_warned)
                 {
                     name_conflict_warned = true;

@@ -54,6 +54,7 @@ struct Param
     int squeeze_wide_glyph;
     int override_fstype;
     int process_type3;
+    int create_fontmap;
 
     // text
     double h_eps, v_eps;

@@ -86,6 +86,13 @@ HTMLRenderer::HTMLRenderer(const Param & param)
             [this](double * box, bool partial) { covered_text_detector.add_char_bbox_clipped(box, partial); };
     tracer.on_non_char_drawn =
             [this](double * box) { covered_text_detector.add_non_char_bbox(box); };
+
+    string unicode_map_filename;
+    if (param.create_fontmap)
+    {
+        unicode_map_filename = (char*)str_fmt("%s/fontMap.txt", param.dest_dir.c_str());
+        unicode_map_outf.open(unicode_map_filename, std::ofstream::out);
+    }
 }
 
 HTMLRenderer::~HTMLRenderer()
