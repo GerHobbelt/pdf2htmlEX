@@ -21,3 +21,6 @@ Testing/*
 build
 test.py
 .vscode/settings.json
+dotnetWrapper/AMANA.PDF.Converter/packages/
+dotnetWrapper/AMANA.PDF.Converter/.vs/
+dotnetWrapper/AMANA.PDF.Converter/AMANA.PDF.Converter/obj/
