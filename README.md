@@ -7,9 +7,10 @@
 This repo is for building of pdf2htmlEX, so that we can support both x86
 and aarch64 in our docker dev setup.
 
-Releases should contain `.deb` files for both x86 and aarch64.
+Releases should contain `.deb` files of pdf2htmlEX and libjpeg-turbo8 for
+both x86 and aarch64.
 
-Running `./build-deb-package.sh` will build a `.deb` file for your native
+Running `./build-deb-package.sh` will build `.deb` files for your native
 CPU architecture.
 
 While `docker buildx build --platform linux/{amd64,arm64}` should
@@ -17,7 +18,7 @@ theoretically work to build for a different architecture, the amd64
 emulation doesn't seem to work fully, and there's a fatal java error at
 some point.
 
-
+# Normal project readme
 # Differences from upstream pdf2htmlEX: 
 
 This is my branch of pdf2htmlEX which aims to allow an open collaboration to help keep the project active. A number of changes and improvements have been incorporated from other forks:
