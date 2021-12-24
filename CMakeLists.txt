@@ -12,7 +12,7 @@ add_definitions("-fpermissive")
 
 link_directories("/usr/x86_64-w64-mingw32/lib")
 
-set(PDF2HTMLEX_VERSION "0.14.7-amana")
+set(PDF2HTMLEX_VERSION "0.14.8-amana")
 set(ARCHIVE_NAME pdf2htmlex-${PDF2HTMLEX_VERSION})
 add_custom_target(dist
     COMMAND git archive --prefix=${ARCHIVE_NAME}/ HEAD
@@ -46,6 +46,7 @@ if(ENABLE_SVG)
             ${CAIROOUTPUTDEV_PATH}/CairoOutputDev.h
             ${CAIROOUTPUTDEV_PATH}/CairoOutputDev.cc
         )
+        message("SVG ok")
     else()
         message(FATAL_ERROR "Error: no SVG support found in Cairo")
     endif()
@@ -73,7 +74,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
 
 # generic flags
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Woverloaded-virtual")
 
 # clang compiler need c++11 flag
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
@@ -81,10 +82,17 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 endif()
 
 # CYGWIN or GCC 4.5.x bug
+# if(CYGWIN)
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x")
+# else()
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+# endif()
+
+# CYGWIN or GCC 4.5.x bug
 if(CYGWIN)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++14")
 else()
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -pthread")
 endif()
 
 # check the C++11 features we need

@@ -26,7 +26,7 @@ public:
         StringFormatter * sf;
     };
 
-    StringFormatter() : buf_cnt(0) { buf.reserve(L_tmpnam); }
+    StringFormatter() : buf_cnt(0) { buf.resize(L_tmpnam); }
     /*
      * Important:
      * there is only one buffer, so new strings will replace old ones

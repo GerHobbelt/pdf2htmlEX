@@ -16,7 +16,7 @@ StringFormatter::GuardedPointer StringFormatter::operator () (const char * forma
     va_end(vlist);
     if(l >= (int)buf.capacity()) 
     {
-        buf.reserve(std::max<long>((long)(l+1), (long)buf.capacity() * 2));
+        buf.resize(std::max<long>((long)(l+1), (long)buf.capacity() * 2));
         va_start(vlist, format);
         l = vsnprintf(&buf.front(), buf.capacity(), format, vlist);
         va_end(vlist);

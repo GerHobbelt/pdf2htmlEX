@@ -19,6 +19,7 @@ src/util/css_const.h
 test export-ignore
 Testing/*
 build
+build_new
 test.py
 .vscode/settings.json
 dotnetWrapper/AMANA.PDF.Converter/packages/
