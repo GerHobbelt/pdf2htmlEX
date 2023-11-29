@@ -1,0 +1,33 @@
+# This docker-compose is used only for convenience during local development.
+# We don't use this configuration in production in any way.
+#
+# Note that a fresh `docker-compose up` will not result in a functioning app.
+# For the app to run you must first run migrations and generate a test account.
+# The best way to do that is to run `docker-compose run api bash` to get into
+# a shell for the `api` service and then to run `cf_api/manage.py seed_db`, which
+# provides interactive options. When running seed_db, the recommended options are
+# to select only the "standard" firm type with the "small" firm-size. If you are
+# in a hurry, "empty" is much faster, though.
+#
+# Now that we use volumes, note that you may run into a situation where your
+# database, redis dump, or elasticsearch data are out of sync with the code
+# or with each other. In this scenario, you may want to delete the volumes
+# and recreate them -- which will require another run of seed_db. However,
+# this should hopefully be a rare occurrence, and you should be able to continue
+# using the same local data even when the images need to be rebuilt.
+#
+# If you see a warning about unmigrated data, be sure to shell into the `api`
+# container and run `cf_api/manage.py migrate`.
+version: "3.8"
+services:
+
+  # backend webserver
+  pdf2html:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/pdf2htmlEX
+    command: bash
+    entrypoint: ""
+    tty: true
