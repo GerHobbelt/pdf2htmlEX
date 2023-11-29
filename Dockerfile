@@ -3,7 +3,7 @@ FROM python:3.10-slim-bullseye
 RUN apt-get update
 
 # required for packaging build scripts to work
-RUN apt-get install git sudo -y
+RUN apt-get install git sudo libjpeg62-turbo -y
 
 WORKDIR /pdf2htmlEX
 
@@ -23,11 +23,5 @@ RUN git config --add user.email 'aaron@sikes.io'
 RUN buildScripts/buildInstallLocallyApt
 RUN buildScripts/createDebianPackage
 RUN rm -rf imageBuild/debianDir
-
-# libjpeg-turbo8 is a dependency of the pdf2html package.
-# It's packaged for ubuntu, but not available in the default
-# repositories of the buster-slim image we use for our main
-# api containers. So we fetch it here.
-# RUN cd imageBuild && apt-get download libjpeg-turbo8
 
 CMD bash
