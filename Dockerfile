@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM python:3.10-slim-bullseye
 
 RUN apt-get update
 
@@ -28,6 +28,6 @@ RUN rm -rf imageBuild/debianDir
 # It's packaged for ubuntu, but not available in the default
 # repositories of the buster-slim image we use for our main
 # api containers. So we fetch it here.
-RUN cd imageBuild && apt-get download libjpeg-turbo8
+# RUN cd imageBuild && apt-get download libjpeg-turbo8
 
 CMD bash
